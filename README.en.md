@@ -18,6 +18,8 @@ changes at the buttons on the floors; if the Shelly fails, they keep working as 
 | Door-opener circuit | Bell transformer Hager ST303, 8 VA, SEC 8 V (2–4) / 12 V (2–8); pole 4 runs to a 5-way WAGO in the junction box above the left sub-distribution board |
 | Shelly supply | Schuko power cord into the socket in the left distribution board – no change to the fixed wiring |
 | Control | **pulse only**: auto-off after 2–3 s |
+| Enclosure | custom 2-module DIN-rail enclosure (breaker-shaped) with snap latch and mains / extra-low-voltage divider – [docs/gehaeuse.en.md](docs/gehaeuse.en.md) |
+| Firmware | **stock Shelly** (local, cloud off) – Tasmota practically not possible, see below |
 | Related project | [esphome-klingel](https://github.com/Sparxx947/esphome-klingel) – detects on which floor the bell was rung |
 
 ## Principle
@@ -46,6 +48,14 @@ so the transformer's extra-low voltage never touches the Shelly's supply.
 
 Alternative without 230 V: **Shelly 1 Gen4**, which according to its datasheet also runs on 12 V DC (plug-in PSU).
 
+## Tasmota?
+
+No. The OTA converter [mgos32-to-tasmota32](https://github.com/tasmota/mgos32-to-tasmota32) lists the Shelly 1
+Mini Gen3 as tested, but requires Shelly firmware **1.3.x** (for devices without 1.4.x); from **1.5.x nothing is
+supported any more and development has stopped**. There is no way back to Shelly firmware, and a failed convert
+needs serial flashing (open the housing, solder). The stock firmware works locally, Home Assistant integrates it
+directly and auto-off is built in – Tasmota would bring no benefit here.
+
 ## Safety
 
 - **Wire first, then plug in.** Mains and low-voltage terminals share one terminal strip.
@@ -58,6 +68,8 @@ Alternative without 230 V: **Shelly 1 Gen4**, which according to its datasheet a
 | Path | Contents |
 |---|---|
 | [docs/einbau.en.md](docs/einbau.en.md) | Measuring the terminals, wiring, Shelly settings |
+| [docs/gehaeuse.en.md](docs/gehaeuse.en.md) | DIN-rail enclosure: design, dimensions, checks, printing, fire safety |
+| `gehaeuse/` | OpenSCAD source, STL (body, lid), view |
 | [docs/verlauf.en.md](docs/verlauf.en.md) | Project history and decisions |
 | `ha/` | Home Assistant parts (after installation) |
 
