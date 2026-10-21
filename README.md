@@ -18,6 +18,8 @@ den Etagen wird **nichts** verändert; fällt der Shelly aus, funktionieren sie 
 | Türöffnerkreis | Klingeltrafo Hager ST303, 8 VA, SEC 8 V (Kl. 2–4) / 12 V (Kl. 2–8); Pol 4 läuft auf eine 5er-WAGO in der Abzweigdose über dem linken Kleinverteiler |
 | Versorgung Shelly | Schuko-Anschlussleitung an der Steckdose im linken Verteiler – kein Eingriff in die feste Installation |
 | Ansteuerung | nur als **Impuls**: Auto-Off nach 2–3 s |
+| Gehäuse | eigenes Hutschienengehäuse 2 TE (wie ein LS-Schalter), mit Rastriegel, Trennsteg 230 V / Kleinspannung – [docs/gehaeuse.md](docs/gehaeuse.md) |
+| Firmware | **Shelly-Original** (lokal, Cloud aus) – Tasmota praktisch nicht möglich, siehe unten |
 | Verwandtes Projekt | [esphome-klingel](https://github.com/Sparxx947/esphome-klingel) – erkennt, auf welcher Etage geklingelt wird |
 
 ## Prinzip
@@ -46,6 +48,14 @@ die Kleinspannung des Trafos kommt also nicht mit der Versorgung des Shelly in B
 
 Alternative ohne 230 V: **Shelly 1 Gen4**, der laut Datenblatt auch mit 12 V DC läuft (Steckernetzteil).
 
+## Tasmota?
+
+Nein. Die OTA-Umstellung [mgos32-to-tasmota32](https://github.com/tasmota/mgos32-to-tasmota32) führt den
+Shelly 1 Mini Gen3 zwar als getestet, verlangt aber Shelly-Firmware **1.3.x** (für Geräte ohne 1.4.x); ab **1.5.x
+wird nichts mehr unterstützt, die Entwicklung ist eingestellt**. Rückweg zur Shelly-Firmware gibt es nicht, ein
+Fehlschlag braucht serielles Flashen (Gehäuse öffnen, löten). Die Original-Firmware arbeitet lokal, Home Assistant
+bindet sie direkt ein, Auto-Off ist eingebaut – Tasmota brächte hier keinen Vorteil.
+
 ## Sicherheit
 
 - **Erst verdrahten, dann einstecken.** Netz- und Kleinspannungsklemmen liegen auf einer Leiste.
@@ -58,6 +68,8 @@ Alternative ohne 230 V: **Shelly 1 Gen4**, der laut Datenblatt auch mit 12 V DC 
 | Pfad | Inhalt |
 |---|---|
 | [docs/einbau.md](docs/einbau.md) | Messung der Klemmpunkte, Anschluss, Shelly-Einstellungen |
+| [docs/gehaeuse.md](docs/gehaeuse.md) | Hutschienengehäuse: Aufbau, Maße, Prüfungen, Druck, Brandschutz |
+| `gehaeuse/` | OpenSCAD-Quelle, STL (Körper, Deckel), Ansicht |
 | [docs/verlauf.md](docs/verlauf.md) | Projektverlauf und Entscheidungen |
 | `ha/` | Home-Assistant-Teile (folgen nach dem Einbau) |
 
