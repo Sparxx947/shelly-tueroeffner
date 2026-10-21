@@ -44,6 +44,8 @@ ready to print: `tueroeffner_koerper.stl` (body), `tueroeffner_deckel.stl` (lid)
 
 ## Printing
 
+**Pre-configured for the Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – body and lid on one plate, P1S 0.4 mm, Bambu PETG Basic (255 °C / bed 70 °C), textured PEI plate, 0.20 mm, 3 walls, 4 top/bottom layers, 25 % infill, Arachne, no supports, no brim. Sliced: **1 h 57 min, 52.3 g**. After changing dimensions, re-export the STL files and regenerate the 3MF.
+
 - **PETG**, 0.2 mm, 3 walls, no supports. PLA is unsuitable: the spring needs toughness, and it gets warm in the cabinet.
 - Print the body on its **left side** (`TEIL="koerper"` rotates it). The spring and hooks then lie in the print plane
   and do not flex against layer adhesion. Print the lid outer face down.

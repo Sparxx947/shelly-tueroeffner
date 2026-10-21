@@ -69,7 +69,7 @@ bindet sie direkt ein, Auto-Off ist eingebaut – Tasmota brächte hier keinen V
 |---|---|
 | [docs/einbau.md](docs/einbau.md) | Messung der Klemmpunkte, Anschluss, Shelly-Einstellungen |
 | [docs/gehaeuse.md](docs/gehaeuse.md) | Hutschienengehäuse: Aufbau, Maße, Prüfungen, Druck, Brandschutz |
-| `gehaeuse/` | OpenSCAD-Quelle, STL (Körper, Deckel), Ansicht |
+| `gehaeuse/` | OpenSCAD-Quelle, STL (Körper, Deckel), fertige 3MF für Bambu Lab P1S, Ansicht |
 | [docs/verlauf.md](docs/verlauf.md) | Projektverlauf und Entscheidungen |
 | `ha/` | Home-Assistant-Teile (folgen nach dem Einbau) |
 
