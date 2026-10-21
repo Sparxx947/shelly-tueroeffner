@@ -30,7 +30,7 @@ ready to print: `tueroeffner_koerper.stl` (body), `tueroeffner_deckel.stl` (lid)
 | Shelly | ✅ **measured 2026-10-21:** 33.16 × 28.24 × 16.08 mm (datasheet 34 × 29 × 16) | `sh_l`, `sh_h`, `sh_t` |
 | Terminals I–L centre to centre | ✅ **measured:** 5.0 mm → divider 1.0 mm thick, starts 2 mm above the terminal strip | `kl_teilung`, `steg_t`, `steg_luft` |
 | Terminal centre from the Shelly's back (thickness) | ✅ **measured:** 6.5 mm | – |
-| Position of the I/L midpoint along the length | ★ **assumed:** terminal strip centred → 19.08 mm from the SW edge (divider at y = 21.58) | `steg_y` |
+| Position of the I/L midpoint along the length | ✅ **measured:** 19.0 mm from the SW edge (divider at y = 21.5) | `sw_bis_il` |
 | Depth rail → cover on your own breaker | 44 mm (standard: ≤ 44) | `T_sch` |
 | Collar fits through the cover cut-out | 45 mm (cut-out usually 46) | `H_krag` |
 

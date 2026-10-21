@@ -20,7 +20,7 @@
 // MASSE
 //   Shelly 1 Mini Gen3 33,16 x 28,24 x 16,08 mm — GEMESSEN 21.10.2026 (Datenblatt 34 x 29 x 16)
 //   Klemmen I–L Mitte–Mitte 5,0 mm, Rueckwand–Klemmenmitte 6,5 mm — GEMESSEN 21.10.2026.
-//   Lage entlang der Laenge: Klemmleiste mittig, Teilung 5 ANGENOMMEN ★ (Abstand SW-Kante → Mitte I/L nachmessen)
+//   SW-Kante → Mitte I/L 19,0 mm — GEMESSEN 21.10.2026 (Annahme "Leiste mittig" ergab 19,08)
 //   Hutschiene TS35 x 7,5: 35 breit, Hut 27, Flansch 4 breit / 1,0 dick, 6,5 frei dahinter — EN 60715 (OBO-Datenblatt)
 //   DIN 43880 Baugroesse 1: Kragen 45 mm hoch, Gesamthoehe 90, Tiefe bis Schulter 44, Gesamttiefe 55 — Normwerte,
 //   am eigenen LS-Schalter nachmessen ★ (Kragen muss durch den Abdeckungsausschnitt passen)
@@ -53,9 +53,9 @@ sh_t = 16.08;  sh_l = 33.16;  sh_h = 28.24;  // Dicke (x), Laenge entlang Klemml
 sh_y0 = wd + 0.5;  sh_z0 = 37;
 sh_y1 = sh_y0 + sh_l;  sh_z1 = sh_z0 + sh_h;
 sh_x1 = xi0 + sh_t;
-// Klemmen SW O I L N, I–L 5,0 (gemessen), Leiste mittig (Annahme) → Steg zwischen I (3.) und L (4.)
-kl_teilung = 5.0;
-steg_y = sh_y0 + sh_l/2 + kl_teilung/2;  steg_t = 1.0;
+// Klemmen SW O I L N, I–L 5,0, SW-Kante → Mitte I/L 19,0 (beides gemessen) → Steg zwischen I (3.) und L (4.)
+kl_teilung = 5.0;  sw_bis_il = 19.0;
+steg_y = sh_y0 + sw_bis_il;  steg_t = 1.0;
 steg_luft = 2.0;     // Steg beginnt so weit ueber der Klemmleiste → Adern fahren gerade ein
 
 // ---------- Rueckblock mit Riegel ----------

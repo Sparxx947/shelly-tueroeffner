@@ -30,7 +30,7 @@ druckfertig: `tueroeffner_koerper.stl`, `tueroeffner_deckel.stl`.
 | Shelly | ✅ **gemessen 21.10.:** 33,16 × 28,24 × 16,08 mm (Datenblatt 34 × 29 × 16) | `sh_l`, `sh_h`, `sh_t` |
 | Klemmen I–L Mitte–Mitte | ✅ **gemessen:** 5,0 mm → Steg 1,0 mm dick, beginnt 2 mm über der Klemmleiste | `kl_teilung`, `steg_t`, `steg_luft` |
 | Klemmenmitte ab Shelly-Rückwand (Dicke) | ✅ **gemessen:** 6,5 mm | – |
-| Lage der Mitte I/L entlang der Länge | ★ **angenommen:** Klemmleiste mittig → 19,08 mm ab der SW-Kante (Steg bei y = 21,58) | `steg_y` |
+| Lage der Mitte I/L entlang der Länge | ✅ **gemessen:** 19,0 mm ab der SW-Kante (Steg bei y = 21,5) | `sw_bis_il` |
 | Tiefe Schiene → Abdeckung am eigenen LS-Schalter | 44 mm (Norm: ≤ 44) | `T_sch` |
 | Kragen passt durch den Abdeckungsausschnitt | 45 mm (Ausschnitt meist 46) | `H_krag` |
 
