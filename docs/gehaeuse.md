@@ -27,8 +27,10 @@ druckfertig: `tueroeffner_koerper.stl`, `tueroeffner_deckel.stl`.
 
 | Maß | Annahme im Modell | Parameter |
 |---|---|---|
-| Shelly 29 × 34 × 16 mm | Shelly-Datenblatt (±0,5), nicht gemessen | `sh_h`, `sh_l`, `sh_t` |
-| Lage der Klemmen I und L entlang der Leiste | Teilung 34/5 → Steg 22,9 mm hinter der Rückwand | `steg_y` |
+| Shelly | ✅ **gemessen 21.10.:** 33,16 × 28,24 × 16,08 mm (Datenblatt 34 × 29 × 16) | `sh_l`, `sh_h`, `sh_t` |
+| Klemmen I–L Mitte–Mitte | ✅ **gemessen:** 5,0 mm → Steg 1,0 mm dick, beginnt 2 mm über der Klemmleiste | `kl_teilung`, `steg_t`, `steg_luft` |
+| Klemmenmitte ab Shelly-Rückwand (Dicke) | ✅ **gemessen:** 6,5 mm | – |
+| Lage der Mitte I/L entlang der Länge | ★ **angenommen:** Klemmleiste mittig → 19,08 mm ab der SW-Kante (Steg bei y = 21,58) | `steg_y` |
 | Tiefe Schiene → Abdeckung am eigenen LS-Schalter | 44 mm (Norm: ≤ 44) | `T_sch` |
 | Kragen passt durch den Abdeckungsausschnitt | 45 mm (Ausschnitt meist 46) | `H_krag` |
 
@@ -44,7 +46,7 @@ druckfertig: `tueroeffner_koerper.stl`, `tueroeffner_deckel.stl`.
 
 ## Druck
 
-**Fertig voreingestellt für Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – Körper und Deckel auf einer Platte, P1S 0,4 mm, Bambu PETG Basic (255 °C / Platte 70 °C), Textured PEI Plate, 0,20 mm, 3 Wände, 4 Decken-/Bodenlagen, 25 % Füllung, Arachne, ohne Stützen, ohne Brim. Gesliced: **1 h 57 min, 52,3 g**. Nach dem Ändern von Maßen die STL neu exportieren und die 3MF neu erzeugen.
+**Fertig voreingestellt für Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – Körper und Deckel auf einer Platte, P1S 0,4 mm, Bambu PETG Basic (255 °C / Platte 70 °C), Textured PEI Plate, 0,20 mm, 3 Wände, 4 Decken-/Bodenlagen, 25 % Füllung, Arachne, ohne Stützen, ohne Brim. Gesliced: **1 h 55 min, 51,9 g**. Nach dem Ändern von Maßen die STL neu exportieren und die 3MF neu erzeugen.
 
 - **PETG**, 0,2 mm, 3 Wände, ohne Stützen. PLA ist ungeeignet, weil die Feder Zähigkeit braucht und es im Verteiler warm wird.
 - Den Körper auf der **linken Seite** drucken (`TEIL="koerper"` dreht ihn so). Dann liegen Feder und Haken in der
