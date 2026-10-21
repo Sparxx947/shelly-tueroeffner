@@ -18,8 +18,9 @@
 //     Abnehmen: Schraubendreher von vorn in den Schlitz der Lasche unten, nach unten ziehen.
 //
 // MASSE
-//   Shelly 1 Mini Gen3 29 x 34 x 16 mm — laut Shelly-Datenblatt (±0,5), NICHT GEMESSEN ★
-//   Lage der Klemmen (Teilung 34/5 angenommen) → Steg zwischen I und L bei y = steg_y — NICHT GEMESSEN ★
+//   Shelly 1 Mini Gen3 33,16 x 28,24 x 16,08 mm — GEMESSEN 21.10.2026 (Datenblatt 34 x 29 x 16)
+//   Klemmen I–L Mitte–Mitte 5,0 mm, Rueckwand–Klemmenmitte 6,5 mm — GEMESSEN 21.10.2026.
+//   SW-Kante → Mitte I/L 19,0 mm — GEMESSEN 21.10.2026 (Annahme "Leiste mittig" ergab 19,08)
 //   Hutschiene TS35 x 7,5: 35 breit, Hut 27, Flansch 4 breit / 1,0 dick, 6,5 frei dahinter — EN 60715 (OBO-Datenblatt)
 //   DIN 43880 Baugroesse 1: Kragen 45 mm hoch, Gesamthoehe 90, Tiefe bis Schulter 44, Gesamttiefe 55 — Normwerte,
 //   am eigenen LS-Schalter nachmessen ★ (Kragen muss durch den Abdeckungsausschnitt passen)
@@ -48,12 +49,14 @@ xi0 = wd;  xi1 = W - dt;            // Innenraum in x
 krag_z0 = zm - H_krag/2;  krag_z1 = zm + H_krag/2;
 
 // ---------- Shelly ----------
-sh_t = 16;  sh_l = 34;  sh_h = 29;  // Dicke (x), Laenge entlang Klemmleiste (y), Hoehe (z)
+sh_t = 16.08;  sh_l = 33.16;  sh_h = 28.24;  // Dicke (x), Laenge entlang Klemmleiste (y), Hoehe (z) — GEMESSEN 21.10.2026
 sh_y0 = wd + 0.5;  sh_z0 = 37;
 sh_y1 = sh_y0 + sh_l;  sh_z1 = sh_z0 + sh_h;
 sh_x1 = xi0 + sh_t;
-// Klemmen SW O I L N gleichmaessig verteilt (Annahme) → Steg zwischen I (3.) und L (4.)
-steg_y = sh_y0 + sh_l*3/5;  steg_t = 1.2;
+// Klemmen SW O I L N, I–L 5,0, SW-Kante → Mitte I/L 19,0 (beides gemessen) → Steg zwischen I (3.) und L (4.)
+kl_teilung = 5.0;  sw_bis_il = 19.0;
+steg_y = sh_y0 + sw_bis_il;  steg_t = 1.0;
+steg_luft = 2.0;     // Steg beginnt so weit ueber der Klemmleiste → Adern fahren gerade ein
 
 // ---------- Rueckblock mit Riegel ----------
 rb_y  = 13.6;  rb_z = 32;           // Rueckblock y 0..rb_y, z 0..rb_z (volle Breite)
@@ -148,7 +151,7 @@ module koerper(mit_riegel = true) {
       cube([W, rb_y, rb_z]);
       haken_oben();
       // Steg ueber der Klemmleiste zwischen I und L
-      translate([xi0, steg_y - steg_t/2, sh_z1 + 0.5]) cube([xi1 - xi0, steg_t, H - wd - sh_z1 - 0.5 + 0.01]);
+      translate([xi0, steg_y - steg_t/2, sh_z1 + steg_luft]) cube([xi1 - xi0, steg_t, H - wd - sh_z1 - steg_luft + 0.01]);
       // Saeulen
       for (s = saeulen) translate([xi0 - 0.01, s[0], s[1]]) rotate([0, 90, 0]) cylinder(d = saeule_d, h = xi1 - xi0 + 0.01);
       // Shelly-Anschlaege: vorn, unten
@@ -178,7 +181,7 @@ module deckel() {
     union() {
       yz(xi1, W) difference() { profil_aussen(); square([rb_y, rb_z]); }
       // Steg neben dem Shelly (Fortsetzung des Koerperstegs nach unten)
-      translate([sh_x1 + 0.8, steg_y - steg_t/2, wd - 0.01]) cube([xi1 - sh_x1 - 0.8 + 0.01, steg_t, sh_z1 + 0.5 - wd + 0.01]);
+      translate([sh_x1 + 0.8, steg_y - steg_t/2, wd - 0.01]) cube([xi1 - sh_x1 - 0.8 + 0.01, steg_t, sh_z1 + steg_luft - wd + 0.01]);
       // Druckzapfen auf das Typenschild
       translate([sh_x1 + 0.5, 32, 44]) rotate([0, 90, 0]) cylinder(d = 5, h = xi1 - sh_x1 - 0.5 + 0.01);
     }

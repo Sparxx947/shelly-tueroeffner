@@ -69,7 +69,7 @@ directly and auto-off is built in – Tasmota would bring no benefit here.
 |---|---|
 | [docs/einbau.en.md](docs/einbau.en.md) | Measuring the terminals, wiring, Shelly settings |
 | [docs/gehaeuse.en.md](docs/gehaeuse.en.md) | DIN-rail enclosure: design, dimensions, checks, printing, fire safety |
-| `gehaeuse/` | OpenSCAD source, STL (body, lid), view |
+| `gehaeuse/` | OpenSCAD source, STL (body, lid), ready-to-print 3MF for Bambu Lab P1S, view |
 | [docs/verlauf.en.md](docs/verlauf.en.md) | Project history and decisions |
 | `ha/` | Home Assistant parts (after installation) |
 
