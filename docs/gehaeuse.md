@@ -46,7 +46,7 @@ druckfertig: `tueroeffner_koerper.stl`, `tueroeffner_deckel.stl`.
 
 ## Druck
 
-**Fertig voreingestellt für Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – Körper und Deckel auf einer Platte, P1S 0,4 mm, Bambu PETG Basic (255 °C / Platte 70 °C), Textured PEI Plate, 0,20 mm, 3 Wände, 4 Decken-/Bodenlagen, 25 % Füllung, Arachne, ohne Stützen, ohne Brim. Gesliced: **1 h 54 min, 51,3 g**. **Keinen Brim im Slicer einschalten:** Er legt je eine Bahn in die Spalte der Mäanderfeder und schweißt sie fest. Nach dem Ändern von Maßen die STL neu exportieren und die 3MF neu erzeugen.
+**Fertig voreingestellt für Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – Körper und Deckel auf einer Platte, P1S 0,4 mm, Bambu PETG Basic (255 °C / Platte 70 °C), Textured PEI Plate, 0,20 mm, 3 Wände, 4 Decken-/Bodenlagen, 25 % Füllung, Arachne, ohne Stützen, ohne Brim. Gesliced: **1 h 55 min, 51,3 g**. Fünf **Haftscheiben (Mausohren)** an Riegel und Lasche sind ins Modell eingebaut – nach dem Druck abbrechen. **Keinen Brim im Slicer einschalten:** Er legt je eine Bahn in die Spalte der Mäanderfeder und schweißt sie fest. Nach dem Ändern von Maßen die STL neu exportieren und die 3MF neu erzeugen.
 
 - **PETG**, 0,2 mm, 3 Wände, ohne Stützen. PLA ist ungeeignet, weil die Feder Zähigkeit braucht und es im Verteiler warm wird.
 - Den Körper auf der **linken Seite** drucken (`TEIL="koerper"` dreht ihn so). Dann liegen Feder und Haken in der

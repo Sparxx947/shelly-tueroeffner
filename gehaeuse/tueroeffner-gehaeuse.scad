@@ -137,6 +137,23 @@ module feder() {
   }
 }
 
+// Haftscheiben (Mausohren) an den freien Aussenkanten von Riegel und Lasche, nur auf der Druckplatte (x = 0).
+// Im ersten Druck loeste sich genau dieser Bereich; Slicer-Brim scheidet aus (fuellt die Federspalte).
+// Nach dem Druck abbrechen. Jede Scheibe ragt hoechstens bis Mitte Riegelstange bzw. 1 mm in die Lasche.
+ohr_d = 9;  ohr_h = 0.4;
+module ohren() {
+  intersection() {
+    yz(0, ohr_h) union() {
+      for (z = [4, 14, 24]) translate([r_y0, z]) circle(d = ohr_d);
+      for (y = [2, 6]) translate([y, lasche_z0]) circle(d = ohr_d);
+    }
+    union() {
+      translate([-1, -10, lasche_z1]) cube([2, 10 + r_y1/2, r_top - 2 - lasche_z1]);   // hinter der Stange, y <= 1
+      translate([-1, -10, -20]) cube([2, 10 + lasche_y1 + 3, 20 + lasche_z0 + 1]);     // unter der Lasche, z <= -4
+    }
+  }
+}
+
 module kabelbinder_steg(y0, z0, z1) {   // Steg senkrecht (entlang z) an der linken Wand, Kabelbinder darunter durch
   translate([xi0, y0, z0]) cube([4.5, 3, 2]);
   translate([xi0, y0, z1 - 2]) cube([4.5, 3, 2]);
@@ -176,7 +193,7 @@ module koerper(mit_riegel = true) {
       linear_extrude(1) text(BESCHRIFTUNG, size = 3.6, halign = "center", valign = "center");
   }
   // Riegel + Feder (im Druck mit dem Koerper verbunden ueber die Feder)
-  if (mit_riegel) { difference() { riegel(); riegel_schlitz(); } feder(); }
+  if (mit_riegel) { difference() { riegel(); riegel_schlitz(); } feder(); ohren(); }
 }
 
 module deckel() {
