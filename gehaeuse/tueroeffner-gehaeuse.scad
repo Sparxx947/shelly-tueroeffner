@@ -49,14 +49,15 @@ xi0 = wd;  xi1 = W - dt;            // Innenraum in x
 krag_z0 = zm - H_krag/2;  krag_z1 = zm + H_krag/2;
 
 // ---------- Shelly ----------
-sh_t = 16.08;  sh_l = 33.16;  sh_h = 28.24;  // Dicke (x), Laenge entlang Klemmleiste (y), Hoehe (z) — GEMESSEN 21.10.2026
-sh_y0 = wd + 0.5;  sh_z0 = 37;
+sh_t = 16.07;  sh_l = 33.46;  sh_h = 28.24;  // Dicke (x), Laenge entlang Klemmleiste (y), Hoehe (z) — GEMESSEN 22.10.2026
+sh_sp = 0.25;        // Spiel je Seite in y; erster Druck mit 0,5 + Laenge 33,16 hatte zu viel Luft
+sh_y0 = wd + sh_sp;  sh_z0 = 37;
 sh_y1 = sh_y0 + sh_l;  sh_z1 = sh_z0 + sh_h;
 sh_x1 = xi0 + sh_t;
 // Klemmen SW O I L N, I–L 5,0, SW-Kante → Mitte I/L 19,0 (beides gemessen) → Steg zwischen I (3.) und L (4.)
 kl_teilung = 5.0;  sw_bis_il = 19.0;
 steg_y = sh_y0 + sw_bis_il;  steg_t = 1.0;
-steg_luft = 2.0;     // Steg beginnt so weit ueber der Klemmleiste → Adern fahren gerade ein
+steg_luft = 0.6;     // Steg beginnt so weit ueber der Klemmleiste = Anschlag nach oben (Adern fahren links/rechts davon ein)
 
 // ---------- Rueckblock mit Riegel ----------
 rb_y  = 13.6;  rb_z = 32;           // Rueckblock y 0..rb_y, z 0..rb_z (volle Breite)
@@ -68,7 +69,9 @@ nase_h = 1.8;  nase_y0 = -2.4;  nase_y1 = -1.15;
 lasche_z0 = -5;  lasche_z1 = -1;  lasche_y1 = 8;
 weg = 3.0;                          // Zugweg zum Loesen
 // Maeanderfeder
-f_y0 = r_y1 + sp;  f_y1 = ta_y1 - sp;  f_t = 0.8;  f_p = 2.0;  f_n = 7;  f_steg = 1.2;
+// Nur f_b breit (im Druck: Hoehe ueber der Platte) — die volle Breite (34,6) hat sich im ersten Druck abgeloest.
+// Steifigkeit ~ f_b * f_t^3: 12 * 1,2^3 ≈ 34,6 * 0,8^3 → etwa wie vorher. Spalt f_p - f_t = 0,8.
+f_y0 = r_y1 + sp;  f_y1 = ta_y1 - sp;  f_t = 1.2;  f_p = 2.0;  f_n = 7;  f_steg = 1.2;  f_b = 12;
 
 // ---------- Oeffnungen, Saeulen ----------
 netz_d = 6.5;   netz_y = 35.5;   // oben, vorn (Netz)
@@ -117,7 +120,7 @@ module riegel_schlitz(dz = 0) {   // Schlitz fuer den Schraubendreher, von vorn
 }
 
 module feder() {
-  yz(0, W) {
+  yz(0, f_b) {
     // oberer Anker an der Taschendecke (hinteres Ende der Feder = hohes y)
     translate([f_y1 - f_t, ta_z1 - f_steg - 0.01]) square([f_t, f_steg + 0.02]);
     for (k = [0 : f_n - 1]) {
@@ -155,7 +158,7 @@ module koerper(mit_riegel = true) {
       // Saeulen
       for (s = saeulen) translate([xi0 - 0.01, s[0], s[1]]) rotate([0, 90, 0]) cylinder(d = saeule_d, h = xi1 - xi0 + 0.01);
       // Shelly-Anschlaege: vorn, unten
-      translate([xi0, sh_y1 + 0.5, sh_z0 + 3]) cube([8, 2, 6]);
+      translate([xi0, sh_y1 + sh_sp, sh_z0 + 3]) cube([8, 2, 6]);
       translate([xi0, 24, sh_z0 - 2.25]) cube([10, 6, 2.25]);
       // Zugentlastungen (Kabelbinder)
       kabelbinder_steg(33, 72, 82);   // Netz
@@ -183,7 +186,7 @@ module deckel() {
       // Steg neben dem Shelly (Fortsetzung des Koerperstegs nach unten)
       translate([sh_x1 + 0.8, steg_y - steg_t/2, wd - 0.01]) cube([xi1 - sh_x1 - 0.8 + 0.01, steg_t, sh_z1 + steg_luft - wd + 0.01]);
       // Druckzapfen auf das Typenschild
-      translate([sh_x1 + 0.5, 32, 44]) rotate([0, 90, 0]) cylinder(d = 5, h = xi1 - sh_x1 - 0.5 + 0.01);
+      for (p = [[32, 44], [10, 55]]) translate([sh_x1 + 0.2, p[0], p[1]]) rotate([0, 90, 0]) cylinder(d = 5, h = xi1 - sh_x1 - 0.2 + 0.01);
     }
     for (s = saeulen) translate([xi1 - 1, s[0], s[1]]) rotate([0, 90, 0]) cylinder(d = deckel_loch, h = dt + 2);
   }

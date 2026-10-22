@@ -27,7 +27,7 @@ ready to print: `tueroeffner_koerper.stl` (body), `tueroeffner_deckel.stl` (lid)
 
 | Dimension | Assumed in the model | Parameter |
 |---|---|---|
-| Shelly | ✅ **measured 2026-10-21:** 33.16 × 28.24 × 16.08 mm (datasheet 34 × 29 × 16) | `sh_l`, `sh_h`, `sh_t` |
+| Shelly | ✅ **re-measured 2026-10-22:** 33.46 × 28.24 × 16.07 mm (10-21: 33.16 length); 0.25 mm clearance per side lengthwise, divider 0.6 mm above the strip as upper stop, two pressure pins in the lid with 0.2 mm clearance (datasheet 34 × 29 × 16) | `sh_l`, `sh_h`, `sh_t` |
 | Terminals I–L centre to centre | ✅ **measured:** 5.0 mm → divider 1.0 mm thick, starts 2 mm above the terminal strip | `kl_teilung`, `steg_t`, `steg_luft` |
 | Terminal centre from the Shelly's back (thickness) | ✅ **measured:** 6.5 mm | – |
 | Position of the I/L midpoint along the length | ✅ **measured:** 19.0 mm from the SW edge (divider at y = 21.5) | `sw_bis_il` |
@@ -46,7 +46,7 @@ ready to print: `tueroeffner_koerper.stl` (body), `tueroeffner_deckel.stl` (lid)
 
 ## Printing
 
-**Pre-configured for the Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – body and lid on one plate, P1S 0.4 mm, Bambu PETG Basic (255 °C / bed 70 °C), textured PEI plate, 0.20 mm, 3 walls, 4 top/bottom layers, 25 % infill, Arachne, no supports, no brim. Sliced: **1 h 55 min, 51.9 g**. After changing dimensions, re-export the STL files and regenerate the 3MF.
+**Pre-configured for the Bambu Lab P1S:** [`gehaeuse/tueroeffner-gehaeuse-p1s.3mf`](../gehaeuse/tueroeffner-gehaeuse-p1s.3mf) – body and lid on one plate, P1S 0.4 mm, Bambu PETG Basic (255 °C / bed 70 °C), textured PEI plate, 0.20 mm, 3 walls, 4 top/bottom layers, 25 % infill, Arachne, no supports, no brim. Sliced: **1 h 54 min, 51.3 g**. **Do not enable a brim in the slicer:** it puts one line into each gap of the meander spring and welds it solid. After changing dimensions, re-export the STL files and regenerate the 3MF.
 
 - **PETG**, 0.2 mm, 3 walls, no supports. PLA is unsuitable: the spring needs toughness, and it gets warm in the cabinet.
 - Print the body on its **left side** (`TEIL="koerper"` rotates it). The spring and hooks then lie in the print plane
