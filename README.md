@@ -7,8 +7,9 @@ direkt aus der Klingel-Benachrichtigung mit Kamerabild. Ein **Shelly 1 Mini Gen3
 legt seinen **potentialfreien Relaiskontakt parallel zu den vorhandenen Türöffner-Tastern**. An den Tastern in
 den Etagen wird **nichts** verändert; fällt der Shelly aus, funktionieren sie wie bisher.
 
-> **🟡 Stand 21.10.2026: Planung.** Gerät ist vorhanden (Bestand), Anschlussweg festgelegt. **Offen:** Messung,
-> welche Ader der Türöffner-Taster gegen den Trafo schaltet (siehe [Einbau](docs/einbau.md#1-klemmpunkte-messen)).
+> **🟢 Stand 04.11.2026: eingebaut und in Betrieb.** Shelly sitzt im Verteiler, Kontakt zwischen Pol 4 (5er-WAGO) und
+> der direkten Ader zum Summer (Türöffner); Home Assistant öffnet die Tür per Knopf mit Bestätigung. Anschlussplan:
+> [docs/schaltplan/tueroeffner_schaltplan.pdf](docs/schaltplan/tueroeffner_schaltplan.pdf).
 > Verlauf und Entscheidungen: [docs/verlauf.md](docs/verlauf.md).
 
 | | |
