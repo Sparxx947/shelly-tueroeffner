@@ -18,7 +18,7 @@ def linie(pts, farbe, lw=2.4, ls="-"):
     xs, ys = zip(*pts); ax.plot(xs, ys, color=farbe, lw=lw, ls=ls, solid_capstyle="round")
 
 ax.text(148.5, 203, "Türöffner-Shelly – Anschlussplan", ha="center", fontsize=17, weight="bold")
-ax.text(148.5, 196, "Shelly 1 Mini Gen3 (.78) parallel zum Türöffner-Taster · Stand 04.11.2026", ha="center", fontsize=10, color="#444")
+ax.text(148.5, 196, "Shelly 1 Mini Gen3 (.78) parallel zum Türöffner-Taster · Stand 04.11.2026 (so eingebaut)", ha="center", fontsize=10, color="#444")
 
 # --- 230-V-Seite links ---
 box(12, 118, 52, 55, "Schuko-Stecker\n(Steckdose linker Verteiler)", "#fde9e7", "#b03a2e", 9)
@@ -67,10 +67,10 @@ ax.plot([258, 262], [145, 149], color="#333", lw=1.5); ax.plot([262, 266], [145,
 linie([(266, 145), (280, 145), (280, 70), (240, 70)], "#7f7f7f")
 
 # Türöffner-Ader grau
-ax.text(258, 66, "Türöffner-Ader\n„grau EG“", ha="center", fontsize=9, weight="bold", color="#555", va="top")
+ax.text(258, 66, "direkte Ader\nzum Summer", ha="center", fontsize=9, weight="bold", color="#555", va="top")
 klemme(238, 70, "", links=True)
 linie([(175.6, 150), (192, 150), (192, 70), (236.4, 70)], "#7f7f7f", lw=3)
-ax.text(194, 110, "NEU: O → grau EG", ha="left", fontsize=9, weight="bold", color="#555", rotation=90, va="center")
+ax.text(194, 110, "NEU: O → Ader zum Summer", ha="left", fontsize=9, weight="bold", color="#555", rotation=90, va="center")
 
 # Türöffner
 box(205, 30, 60, 26, "Türöffner (Schließblech)", "#f7f7f7", "#555", 9)
@@ -82,7 +82,7 @@ ax.text(130, 48.5, "Türöffner zurück zu Trafo Kl. 2 (vorhanden)", ha="center"
 ax.add_patch(FancyBboxPatch((108, 3), 182, 22, boxstyle="round,pad=0.6", fc="#fff3cd", ec="#c9a227", lw=1.5))
 ax.text(110, 21, "⚠ VOR DEM ANKLEMMEN:", fontsize=9.5, weight="bold", va="top")
 ax.text(110, 15.5,
-        "1. Gegenprobe: WAGO ↔ grau EG 1–2 s mit Draht brücken → summt die Tür? Nur dann ist „grau EG“ richtig.\n"
+        "1. Gegenprobe: WAGO ↔ Summer-Ader 1–2 s mit Draht brücken → summt die Tür? Erst dann anklemmen.\n"
         "2. Erst alles verdrahten + Gehäuse schließen, DANN Stecker einstecken.\n"
         "3. Abnahme: Shelly schaltet → summt 2–5 s; alle 3 Taster gehen weiter; Stecker raus → Taster gehen weiter.",
         fontsize=8, va="top")

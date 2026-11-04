@@ -8,7 +8,7 @@ legt seinen **potentialfreien Relaiskontakt parallel zu den vorhandenen Türöff
 den Etagen wird **nichts** verändert; fällt der Shelly aus, funktionieren sie wie bisher.
 
 > **🟢 Stand 04.11.2026: eingebaut und in Betrieb.** Shelly sitzt im Verteiler, Kontakt zwischen Pol 4 (5er-WAGO) und
-> der grauen Ader der EG-Leitung; Home Assistant öffnet die Tür per Knopf mit Bestätigung. Anschlussplan:
+> der direkten Ader zum Summer (Türöffner); Home Assistant öffnet die Tür per Knopf mit Bestätigung. Anschlussplan:
 > [docs/schaltplan/tueroeffner_schaltplan.pdf](docs/schaltplan/tueroeffner_schaltplan.pdf).
 > Verlauf und Entscheidungen: [docs/verlauf.md](docs/verlauf.md).
 

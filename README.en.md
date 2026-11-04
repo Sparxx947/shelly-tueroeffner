@@ -8,7 +8,7 @@ cabinet puts its **potential-free relay contact in parallel with the existing do
 changes at the buttons on the floors; if the Shelly fails, they keep working as before.
 
 > **🟢 Status 2026-11-04: installed and running.** The Shelly sits in the distribution board, contact between pole 4
-> (5-way WAGO) and the grey wire of the ground-floor line; Home Assistant opens the door via a button with confirmation.
+> (5-way WAGO) and the direct wire to the door strike; Home Assistant opens the door via a button with confirmation.
 > Wiring diagram: [docs/schaltplan/tueroeffner_schaltplan.pdf](docs/schaltplan/tueroeffner_schaltplan.pdf).
 > History and decisions: [docs/verlauf.en.md](docs/verlauf.en.md).
 
